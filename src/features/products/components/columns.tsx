@@ -56,9 +56,16 @@ export const columns: ColumnDef<Product>[] = [
   },
   {
     accessorKey: "price",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Price" />
-    ),
+    header: () => <div className="text-left">Price</div>,
+    cell: ({ row }) => {
+      const amount = parseFloat(row.getValue("price"))
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(amount)
+ 
+      return <div className="text-left font-medium">{formatted}</div>
+    },
   },
   {
     accessorKey: "category",

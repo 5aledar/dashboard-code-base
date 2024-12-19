@@ -11,10 +11,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { DataTableColumnHeader } from "./DataTableColumnHeader";
-import { Product } from "@/features/products/components/columns";
 export type Cart = {
   id: string;
-  content: Product[];
+  products: string[];
   owner: string;
   total: number;
 };
@@ -47,11 +46,12 @@ export const columns: ColumnDef<Cart>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Id" />
     ),
+    enableSorting: false
   },
   {
-    accessorKey: "content",
+    accessorKey: "products",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Content" />
+      <DataTableColumnHeader column={column} title="Products" />
     ),
   },
   {
@@ -62,9 +62,16 @@ export const columns: ColumnDef<Cart>[] = [
   },
   {
     accessorKey: "total",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Total" />
-    ),
+    header: () => <div className="text-left">Total</div>,
+    cell: ({ row }) => {
+      const amount = parseFloat(row.getValue("total"))
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(amount)
+ 
+      return <div className="text-left font-medium">{formatted}</div>
+    },
   },
   {
     id: "actions",

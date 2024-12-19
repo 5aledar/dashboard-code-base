@@ -1,333 +1,100 @@
-export type Product = {
-    id: string;
-    name: string;
-    price: number;
-    category: string;
-    vendor: string;
-  };
-  
+
   export type Cart = {
     id: string;
-    content: Product[];
+    products: string[];
     owner: string;
     total: number;
   };
-  
   export const fakeCarts: Cart[] = [
     {
       id: 'cart001',
-      content: [
-        {
-          id: 'abc1234',
-          name: 'Wireless Mouse',
-          price: 29.99,
-          category: 'Electronics',
-          vendor: 'TechGear'
-        },
-        {
-          id: 'def5678',
-          name: 'Bluetooth Keyboard',
-          price: 49.99,
-          category: 'Electronics',
-          vendor: 'KeyMasters'
-        }
-      ],
-      owner: 'John Doe',
-      total: 29.99 + 49.99
+      products: ['abc1234', 'def5678'],
+      owner: 'user001',
+      total: parseFloat((29.99 + 49.99).toFixed(2))
     },
     {
       id: 'cart002',
-      content: [
-        {
-          id: 'ghi9012',
-          name: 'HD Monitor',
-          price: 199.99,
-          category: 'Electronics',
-          vendor: 'ViewSonic'
-        },
-        {
-          id: 'jkl3456',
-          name: 'Gaming Headset',
-          price: 79.99,
-          category: 'Electronics',
-          vendor: 'SoundWave'
-        }
-      ],
-      owner: 'Jane Smith',
-      total: 199.99 + 79.99
+      products: ['ghi9012', 'jkl3456'],
+      owner: 'user002',
+      total: parseFloat((199.99 + 79.99).toFixed(2))
     },
     {
       id: 'cart003',
-      content: [
-        {
-          id: 'mno7890',
-          name: 'External Hard Drive',
-          price: 89.99,
-          category: 'Electronics',
-          vendor: 'DataSafe'
-        },
-        {
-          id: 'pqr2345',
-          name: 'Smartphone Stand',
-          price: 19.99,
-          category: 'Accessories',
-          vendor: 'HoldIt'
-        }
-      ],
-      owner: 'Alice Johnson',
-      total: 89.99 + 19.99
+      products: ['mno7890', 'pqr2345'],
+      owner: 'user003',
+      total: parseFloat((89.99 + 19.99).toFixed(2))
     },
     {
       id: 'cart004',
-      content: [
-        {
-          id: 'stu6789',
-          name: 'USB-C Hub',
-          price: 34.99,
-          category: 'Electronics',
-          vendor: 'PortPlus'
-        },
-        {
-          id: 'vwx1234',
-          name: 'Portable Charger',
-          price: 39.99,
-          category: 'Electronics',
-          vendor: 'PowerMax'
-        }
-      ],
-      owner: 'Bob Brown',
-      total: 34.99 + 39.99
+      products: ['stu6789', 'vwx1234'],
+      owner: 'user004',
+      total: parseFloat((34.99 + 39.99).toFixed(2))
     },
     {
       id: 'cart005',
-      content: [
-        {
-          id: 'yz12345',
-          name: 'Fitness Tracker',
-          price: 59.99,
-          category: 'Electronics',
-          vendor: 'FitLife'
-        },
-        {
-          id: 'abc6789',
-          name: 'Wireless Earbuds',
-          price: 69.99,
-          category: 'Electronics',
-          vendor: 'EarCandy'
-        }
-      ],
-      owner: 'Charlie Green',
-      total: 59.99 + 69.99
+      products: ['yz12345', 'abc6789'],
+      owner: 'user005',
+      total: parseFloat((59.99 + 69.99).toFixed(2))
     },
     {
       id: 'cart006',
-      content: [
-        {
-          id: 'def0123',
-          name: 'Smartwatch',
-          price: 149.99,
-          category: 'Electronics',
-          vendor: 'WristTech'
-        },
-        {
-          id: 'ghi4567',
-          name: 'LED Desk Lamp',
-          price: 24.99,
-          category: 'Home',
-          vendor: 'BrightLight'
-        }
-      ],
-      owner: 'Daisy White',
-      total: 149.99 + 24.99
+      products: ['def0123', 'ghi4567'],
+      owner: 'user006',
+      total: parseFloat((149.99 + 24.99).toFixed(2))
     },
     {
       id: 'cart007',
-      content: [
-        {
-          id: 'jkl8901',
-          name: 'Laptop Sleeve',
-          price: 17.99,
-          category: 'Accessories',
-          vendor: 'SafeGuard'
-        },
-        {
-          id: 'mno2345',
-          name: 'Tablet Case',
-          price: 22.99,
-          category: 'Accessories',
-          vendor: 'CoverPro'
-        }
-      ],
-      owner: 'Edward Black',
-      total: 17.99 + 22.99
+      products: ['jkl8901', 'mno2345'],
+      owner: 'user007',
+      total: parseFloat((17.99 + 22.99).toFixed(2))
     },
     {
       id: 'cart008',
-      content: [
-        {
-          id: 'pqr6789',
-          name: 'Bluetooth Speaker',
-          price: 45.99,
-          category: 'Electronics',
-          vendor: 'SoundBlast'
-        },
-        {
-          id: 'abc1234',
-          name: 'Wireless Mouse',
-          price: 29.99,
-          category: 'Electronics',
-          vendor: 'TechGear'
-        }
-      ],
-      owner: 'Fiona Blue',
-      total: 45.99 + 29.99
+      products: ['pqr6789', 'abc1234'],
+      owner: 'user008',
+      total: parseFloat((45.99 + 29.99).toFixed(2))
     },
     {
       id: 'cart009',
-      content: [
-        {
-          id: 'def5678',
-          name: 'Bluetooth Keyboard',
-          price: 49.99,
-          category: 'Electronics',
-          vendor: 'KeyMasters'
-        },
-        {
-          id: 'ghi9012',
-          name: 'HD Monitor',
-          price: 199.99,
-          category: 'Electronics',
-          vendor: 'ViewSonic'
-        }
-      ],
-      owner: 'George Red',
-      total: 49.99 + 199.99
+      products: ['def5678', 'ghi9012'],
+      owner: 'user009',
+      total: parseFloat((49.99 + 199.99).toFixed(2))
     },
     {
       id: 'cart010',
-      content: [
-        {
-          id: 'jkl3456',
-          name: 'Gaming Headset',
-          price: 79.99,
-          category: 'Electronics',
-          vendor: 'SoundWave'
-        },
-        {
-          id: 'mno7890',
-          name: 'External Hard Drive',
-          price: 89.99,
-          category: 'Electronics',
-          vendor: 'DataSafe'
-        }
-      ],
-      owner: 'Hannah Purple',
-      total: 79.99 + 89.99
+      products: ['jkl3456', 'mno7890'],
+      owner: 'user010',
+      total: parseFloat((79.99 + 89.99).toFixed(2))
     },
     {
       id: 'cart011',
-      content: [
-        {
-          id: 'pqr2345',
-          name: 'Smartphone Stand',
-          price: 19.99,
-          category: 'Accessories',
-          vendor: 'HoldIt'
-        },
-        {
-          id: 'stu6789',
-          name: 'USB-C Hub',
-          price: 34.99,
-          category: 'Electronics',
-          vendor: 'PortPlus'
-        }
-      ],
-      owner: 'Ian Yellow',
-      total: 19.99 + 34.99
+      products: ['pqr2345', 'stu6789'],
+      owner: 'user011',
+      total: parseFloat((19.99 + 34.99).toFixed(2))
     },
     {
       id: 'cart012',
-      content: [
-        {
-          id: 'vwx1234',
-          name: 'Portable Charger',
-          price: 39.99,
-          category: 'Electronics',
-          vendor: 'PowerMax'
-        },
-        {
-          id: 'yz12345',
-          name: 'Fitness Tracker',
-          price: 59.99,
-          category: 'Electronics',
-          vendor: 'FitLife'
-        }
-      ],
-      owner: 'Jack Orange',
-      total: 39.99 + 59.99
+      products: ['vwx1234', 'yz12345'],
+      owner: 'user012',
+      total: parseFloat((39.99 + 59.99).toFixed(2))
     },
     {
       id: 'cart013',
-      content: [
-        {
-          id: 'abc6789',
-          name: 'Wireless Earbuds',
-          price: 69.99,
-          category: 'Electronics',
-          vendor: 'EarCandy'
-        },
-        {
-          id: 'def0123',
-          name: 'Smartwatch',
-          price: 149.99,
-          category: 'Electronics',
-          vendor: 'WristTech'
-        }
-      ],
-      owner: 'Karen Pink',
-      total: 69.99 + 149.99
+      products: ['abc6789', 'def0123'],
+      owner: 'user013',
+      total: parseFloat((69.99 + 149.99).toFixed(2))
     },
     {
       id: 'cart014',
-      content: [
-        {
-          id: 'ghi4567',
-          name: 'LED Desk Lamp',
-          price: 24.99,
-          category: 'Home',
-          vendor: 'BrightLight'
-        },
-        {
-          id: 'jkl8901',
-          name: 'Laptop Sleeve',
-          price: 17.99,
-          category: 'Accessories',
-          vendor: 'SafeGuard'
-        }
-      ],
-      owner: 'Larry Cyan',
-      total: 24.99 + 17.99
+      products: ['ghi4567', 'jkl8901'],
+      owner: 'user014',
+      total: parseFloat((24.99 + 17.99).toFixed(2))
     },
     {
       id: 'cart015',
-      content: [
-        {
-          id: 'mno2345',
-          name: 'Tablet Case',
-          price: 22.99,
-          category: 'Accessories',
-          vendor: 'CoverPro'
-        },
-        {
-          id: 'pqr6789',
-          name: 'Bluetooth Speaker',
-          price: 45.99,
-          category: 'Electronics',
-          vendor: 'SoundBlast'
-        }
-      ],
-      owner: 'Megan Lime',
-      total: 22.99 + 45.99
+      products: ['mno2345', 'pqr6789'],
+      owner: 'user015',
+      total: parseFloat((22.99 + 45.99).toFixed(2))
     }
   ];
   
